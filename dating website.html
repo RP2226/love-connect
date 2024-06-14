@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Connect - Find Your Match!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #d1c4e9; /* Purple background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #fff; /* White text color */
+        }
+        p {
+            text-align: justify;
+        }
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #512da8; /* Purple submit button color */
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #311b92; /* Darker purple on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Love Connect</h1>
+        <p>Find your perfect match today!</p>
+        <form id="matchForm" onsubmit="findMatch(event)">
+            <input type="text" id="username" placeholder="Enter your username" required>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="submit" value="Find Match">
+        </form>
+        <div id="matchResult" style="display: none;">
+            <h2>Your Match:</h2>
+            <p id="matchUsername"></p>
+            <p id="matchEmail"></p>
+        </div>
+    </div>
+
+    <script>
+        function findMatch(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+
+            // Simulated matching process (randomly generates a match)
+            const matches = [
+                { username: "Ro", email: "*********@gmail.com" },
+                { username: "Shanthanu", email: "*********@gmail.com" },
+                { username: "Antony", email: "*********@gmail.com" },
+                { username: "Mary", email: "*********@gmail.com" },
+                { username: "Bob", email: "*********@gmail.com" },
+            
+            ];
+
+            const randomMatch = matches[Math.floor(Math.random() * matches.length)];
+
+            // Display the match result
+            document.getElementById("matchUsername").textContent = randomMatch.username;
+            document.getElementById("matchEmail").textContent = randomMatch.email;
+            document.getElementById("matchResult").style.display = "block";
+        }
+    </script>
+</body>
+</html>
